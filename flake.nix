@@ -1,5 +1,5 @@
 {
-  description = "A simple NixOS flake";
+  description = "System configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
@@ -7,7 +7,7 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     # Please replace my-nixos with your hostname
-    nixosConfigurations.zdu = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.zduo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         # Import the previous configuration.nix we used,

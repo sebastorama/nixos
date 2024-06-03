@@ -5,6 +5,9 @@
 { config, pkgs, ... }:
 
 {
+  networking.hostName = "zduo"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -35,8 +38,6 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
