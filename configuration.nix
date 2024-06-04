@@ -70,11 +70,10 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.desktopManager.plasma6.enable = true;
   services.xserver.displayManager.gdm.enable = true;
 
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "sebastorama";
+  # services.displayManager.autoLogin.enable = true;
+  # services.displayManager.autoLogin.user = "sebastorama";
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
@@ -83,6 +82,11 @@
   services.xserver = {
     xkb.variant = "mac";
     xkb.layout = "us";
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
   };
 
   # Enable CUPS to print documents.
@@ -118,7 +122,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "sebastorama";
-    extraGroups = [ "networkmanager" "wheel" "tss" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "tss" "docker" "libvirt" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -129,9 +133,7 @@
   # services.xserver.displayManager.autoLogin.enable = true;
   # services.xserver.displayManager.autoLogin.user = "sebastorama";
 
-  # Install firefox.
   programs.firefox.enable = true;
-
   programs.zsh.enable = true;
 
   # Allow unfree packages
@@ -141,10 +143,28 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     blueman
+     dunst
+     libnotify
+     gnome.nautilus
+     nwg-displays
+     networkmanagerapplet
+     rofi-wayland
+     swww
      toolbox
      vim
+     waybar
+     wezterm
      wget
   ];
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
