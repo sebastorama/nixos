@@ -122,7 +122,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "sebastorama";
-    extraGroups = [ "networkmanager" "wheel" "tss" "docker" "libvirt" ];
+    extraGroups = [ "networkmanager" "wheel" "tss" "docker" "libvirtd" "qemu-libvirtd" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -130,8 +130,8 @@
   };
 
   # Enable automatic login for the user.
-  # services.xserver.displayManager.autoLogin.enable = true;
-  # services.xserver.displayManager.autoLogin.user = "sebastorama";
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "sebastorama";
 
   programs.firefox.enable = true;
   programs.zsh.enable = true;
