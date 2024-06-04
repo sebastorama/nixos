@@ -88,12 +88,14 @@
     enable = true;
     xwayland.enable = true;
   };
+  programs.hyprlock.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.brillo.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -122,7 +124,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "sebastorama";
-    extraGroups = [ "networkmanager" "wheel" "tss" "docker" "libvirtd" "qemu-libvirtd" ];
+    extraGroups = [ "video" "networkmanager" "wheel" "tss" "docker" "libvirtd" "qemu-libvirtd" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -130,8 +132,8 @@
   };
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "sebastorama";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "sebastorama";
 
   programs.firefox.enable = true;
   programs.zsh.enable = true;
