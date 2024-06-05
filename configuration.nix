@@ -147,10 +147,11 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      blueman
      dunst
-     libnotify
      gnome.nautilus
-     nwg-displays
+     libnotify
+     localsend
      networkmanagerapplet
+     nwg-displays
      rofi-wayland
      swww
      toolbox
@@ -186,6 +187,13 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  networking.firewall.allowedTCPPorts = [
+    53317 # localsend
+  ];
+
+  networking.firewall.allowedUDPPorts = [
+    53317 # localsend
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
