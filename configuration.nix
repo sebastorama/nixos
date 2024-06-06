@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pyprland, ... }:
+{ config, pkgs, ... }:
 
 {
   networking.hostName = "zduo"; # Define your hostname.
@@ -73,6 +73,9 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
 
+  # Reenable plasma6
+  services.desktopManager.plasma6.enable = true;
+
   # services.displayManager.autoLogin.enable = true;
   # services.displayManager.autoLogin.user = "sebastorama";
   systemd.services."getty@tty1".enable = false;
@@ -84,12 +87,6 @@
     xkb.variant = "mac";
     xkb.layout = "us";
   };
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  programs.hyprlock.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -133,7 +130,7 @@
   };
 
   # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.enable = false;
   services.displayManager.autoLogin.user = "sebastorama";
 
   programs.firefox.enable = true;
@@ -146,22 +143,11 @@
   # $ nix search wget
   environment.systemPackages = [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     pkgs.blueman
-     pkgs.dunst
-     pkgs.gnome.nautilus
-     pkgs.libnotify
      pkgs.localsend
-     pkgs.networkmanagerapplet
-     pkgs.nwg-displays
      pkgs.rofi-wayland
-     pkgs.swww
-     pkgs.toolbox
      pkgs.vim
-     pkgs.waybar
      pkgs.wezterm
      pkgs.wget
-
-     pyprland.packages."x86_64-linux".pyprland
   ];
 
   xdg.portal.enable = true;
