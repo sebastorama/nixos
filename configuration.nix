@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, pyprland, ... }:
 
 {
   networking.hostName = "zduo"; # Define your hostname.
@@ -144,22 +144,24 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     blueman
-     dunst
-     gnome.nautilus
-     libnotify
-     localsend
-     networkmanagerapplet
-     nwg-displays
-     rofi-wayland
-     swww
-     toolbox
-     vim
-     waybar
-     wezterm
-     wget
+     pkgs.blueman
+     pkgs.dunst
+     pkgs.gnome.nautilus
+     pkgs.libnotify
+     pkgs.localsend
+     pkgs.networkmanagerapplet
+     pkgs.nwg-displays
+     pkgs.rofi-wayland
+     pkgs.swww
+     pkgs.toolbox
+     pkgs.vim
+     pkgs.waybar
+     pkgs.wezterm
+     pkgs.wget
+
+     pyprland.packages."x86_64-linux".pyprland
   ];
 
   xdg.portal.enable = true;
