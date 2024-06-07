@@ -125,6 +125,7 @@
     extraGroups = [ "video" "networkmanager" "wheel" "tss" "docker" "libvirtd" "qemu-libvirtd" ];
     packages = with pkgs; [
       kdePackages.kate
+      kdePackages.kdeconnect-kde
     #  thunderbird
     ];
   };
@@ -171,7 +172,7 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
+  # Open ports in the firewall
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
@@ -182,6 +183,14 @@
 
   networking.firewall.allowedUDPPorts = [
     53317 # localsend
+  ];
+
+  networking.firewall.allowedTCPPortRanges = [
+    { from = 1714; to = 1764; } # KDE Connect
+  ];
+
+  networking.firewall.allowedUDPPortRanges = [
+    { from = 1714; to = 1764; } # KDE Connect
   ];
 
   # This value determines the NixOS release from which the default
