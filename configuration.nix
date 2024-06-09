@@ -144,8 +144,9 @@
   # $ nix search wget
   environment.systemPackages = [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     pkgs.localsend
+     pkgs.distrobox
      pkgs.libsForQt5.kde-cli-tools
+     pkgs.localsend
      pkgs.onlyoffice-bin
      pkgs.rofi-wayland
      pkgs.vim
