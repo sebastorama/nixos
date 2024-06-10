@@ -74,9 +74,6 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
 
-  # Reenable plasma6
-  services.desktopManager.plasma6.enable = true;
-
   # services.displayManager.autoLogin.enable = true;
   # services.displayManager.autoLogin.user = "sebastorama";
   systemd.services."getty@tty1".enable = false;
@@ -143,6 +140,8 @@
 
   programs.firefox.enable = true;
   programs.zsh.enable = true;
+  programs.thunar.enable = true;
+  programs.evince.enable = true;
 
   programs.hyprland = {
     enable = true;
