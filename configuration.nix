@@ -66,6 +66,7 @@
 
   services.flatpak.enable = true;
   services.power-profiles-daemon.enable = true;
+  services.blueman.enable = true;
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
@@ -81,6 +82,9 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
 
   # Configure keymap in X11
   services.xserver = {
@@ -93,6 +97,8 @@
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
+  hardware.brillo.enable = true;
 
   security.rtkit.enable = true;
   security.tpm2.enable = true;
@@ -133,9 +139,15 @@
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "sebastorama";
+  services.displayManager.defaultSession = "hyprland";
 
   programs.firefox.enable = true;
   programs.zsh.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
