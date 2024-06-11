@@ -66,7 +66,6 @@
 
   services.flatpak.enable = true;
   services.power-profiles-daemon.enable = true;
-  services.blueman.enable = true;
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
@@ -74,8 +73,6 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
 
-  # services.displayManager.autoLogin.enable = true;
-  # services.displayManager.autoLogin.user = "sebastorama";
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
@@ -136,17 +133,12 @@
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "sebastorama";
-  services.displayManager.defaultSession = "hyprland";
+  services.desktopManager.plasma6.enable = true;
 
   programs.firefox.enable = true;
   programs.zsh.enable = true;
   programs.thunar.enable = true;
   programs.evince.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -156,7 +148,6 @@
   environment.systemPackages = [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      pkgs.distrobox
-     pkgs.libsForQt5.kde-cli-tools
      pkgs.localsend
      pkgs.onlyoffice-bin
      pkgs.rofi-wayland
