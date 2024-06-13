@@ -92,8 +92,6 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
-  hardware.brillo.enable = true;
-
   security.rtkit.enable = true;
   security.tpm2.enable = true;
   security.tpm2.pkcs11.enable = true;  # expose /run/current-system/sw/lib/libtpm2_pkcs11.so
@@ -130,6 +128,12 @@
     ];
   };
 
+  fileSystems."/home/sebastorama/.cache" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=10G" "mode=777" ];
+  };
+
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "sebastorama";
@@ -137,8 +141,6 @@
 
   programs.firefox.enable = true;
   programs.zsh.enable = true;
-  programs.thunar.enable = true;
-  programs.evince.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -149,11 +151,8 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      pkgs.distrobox
      pkgs.localsend
-     pkgs.onlyoffice-bin
-     pkgs.rofi-wayland
      pkgs.vim
      pkgs.virt-viewer
-     pkgs.wezterm
      pkgs.wget
   ];
 
