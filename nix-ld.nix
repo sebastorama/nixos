@@ -1,58 +1,123 @@
 { pkgs, ... }:
 {
   programs.nix-ld.enable = true;
-
   programs.nix-ld.libraries = with pkgs; [
-    alsa-lib
-    at-spi2-atk
-    at-spi2-core
-    atk
-    cairo
-    cups
-    curl
-    dbus
-    expat
-    fontconfig
-    freetype
-    fuse3
-    gdk-pixbuf
-    glib
-    gtk3
-    icu
+    desktop-file-utils
+    xorg.libXcomposite
+    xorg.libXtst
+    xorg.libXrandr
+    xorg.libXext
+    xorg.libX11
+    xorg.libXfixes
     libGL
-    libappindicator-gtk3
+
+    gst_all_1.gstreamer
+    gst_all_1.gst-plugins-ugly
+    gst_all_1.gst-plugins-base
     libdrm
-    libglvnd
-    libnotify
-    libpulseaudio
-    libunwind
-    libusb1
-    libuuid
-    libxkbcommon
-    libxml2
-    mesa
+    xorg.xkeyboardconfig
+    xorg.libpciaccess
+
+    glib
+    gtk2
+    bzip2
+    zlib
+    gdk-pixbuf
+
+    xorg.libXinerama
+    xorg.libXdamage
+    xorg.libXcursor
+    xorg.libXrender
+    xorg.libXScrnSaver
+    xorg.libXxf86vm
+    xorg.libXi
+    xorg.libSM
+    xorg.libICE
+    freetype
+    curlWithGnuTls
     nspr
     nss
-    openssl
+    fontconfig
+    cairo
     pango
-    pipewire
-    stdenv.cc.cc
-    systemd
-    vulkan-loader
-    xorg.libX11
-    xorg.libXScrnSaver
-    xorg.libXcomposite
-    xorg.libXcursor
-    xorg.libXdamage
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXtst
+    expat
+    dbus
+    cups
+    libcap
+    SDL2
+    libusb1
+    udev
+    dbus-glib
+    atk
+    at-spi2-atk
+    libudev0-shim
+
+    xorg.libXt
+    xorg.libXmu
     xorg.libxcb
-    xorg.libxkbfile
-    xorg.libxshmfence
-    zlib
+    xorg.xcbutil
+    xorg.xcbutilwm
+    xorg.xcbutilimage
+    xorg.xcbutilkeysyms
+    xorg.xcbutilrenderutil
+    libGLU
+    libuuid
+    libogg
+    libvorbis
+    SDL
+    SDL2_image
+    glew110
+    openssl
+    libidn
+    tbb
+    wayland
+    mesa
+    libxkbcommon
+    vulkan-loader
+
+    flac
+    freeglut
+    libjpeg
+    libpng12
+    libpulseaudio
+    libsamplerate
+    libmikmod
+    libthai
+    libtheora
+    libtiff
+    pixman
+    speex
+    SDL_image
+    SDL_ttf
+    SDL_mixer
+    SDL2_ttf
+    SDL2_mixer
+    libappindicator-gtk2
+    libcaca
+    libcanberra
+    libgcrypt
+    libvpx
+    librsvg
+    xorg.libXft
+    libvdpau
+    alsa-lib
+
+    harfbuzz
+    e2fsprogs
+    libgpg-error
+    keyutils.lib
+    libjack2
+    fribidi
+    p11-kit
+
+    gmp
+
+    # libraries not on the upstream include list, but nevertheless expected
+    # by at least one appimage
+    libtool.lib # for Synfigstudio
+    xorg.libxshmfence # for apple-music-electron
+    at-spi2-core
+    pciutils # for FreeCAD
+    pipewire # immersed-vr wayland support
   ];
 }
