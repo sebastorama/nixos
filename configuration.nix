@@ -46,6 +46,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = false;
+  networking.wireless.extraConfig = ''
+   bgscan="simple:30:-70:3600"
+  '';
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
