@@ -165,6 +165,7 @@
      pkgs.vim
      pkgs.virt-viewer
      pkgs.virtiofsd
+     pkgs.virglrenderer
      pkgs.wget
   ];
 
