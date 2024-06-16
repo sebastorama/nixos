@@ -164,6 +164,7 @@
      pkgs.localsend
      pkgs.vim
      pkgs.virt-viewer
+     pkgs.virtiofsd
      pkgs.wget
   ];
 
