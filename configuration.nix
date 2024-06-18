@@ -120,10 +120,28 @@
     ];
   };
 
-  fileSystems."/home/sebastorama/.cache" = {
+  fileSystems."/home/sebastorama/.cache/kwin" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ "size=10G" "mode=777" ];
+    options = [ "size=10M" "mode=777" ];
+  };
+
+  fileSystems."/home/sebastorama/.cache/plasmashell" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=10M" "mode=777" ];
+  };
+
+  fileSystems."/home/sebastorama/.cache/mesa_shader_cache" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=10M" "mode=777" ];
+  };
+
+  fileSystems."/home/sebastorama/.cache/kscreen_osd_service" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=10M" "mode=777" ];
   };
 
   programs.firefox.enable = true;
@@ -134,10 +152,12 @@
      pkgs.distrobox
      pkgs.kitty
      pkgs.localsend
+     pkgs.lsof
+     pkgs.mtr
      pkgs.vim
+     pkgs.virglrenderer
      pkgs.virt-viewer
      pkgs.virtiofsd
-     pkgs.virglrenderer
      pkgs.wget
   ];
 
