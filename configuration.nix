@@ -155,6 +155,7 @@
      pkgs.lsof
      pkgs.mtr
      pkgs.vim
+     pkgs.pciutils
      pkgs.virglrenderer
      pkgs.virt-viewer
      pkgs.virtiofsd
