@@ -18,6 +18,8 @@
     "intel_iommu=on"
     "iommu=pt"
     "vfio-pci"
+    "i915.force_probe=!7d55"
+    "xe.force_probe=7d55"
   ];
 
   virtualisation = {
@@ -28,6 +30,7 @@
       onBoot = "start"; # remove need for 'sudo virsh net-start default'
     };
     docker.enable = true;
+    docker.package = pkgs.docker_26;
     podman.enable = true;
   };
 
@@ -84,7 +87,12 @@
     xkb.layout = "us";
   };
 
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [
+      pkgs.epson-escpr
+    ];
+  };
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -93,6 +101,7 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  hardware.logitech.wireless.enable = true;
 
   security.rtkit.enable = true;
   security.tpm2.enable = true;
@@ -154,8 +163,9 @@
      pkgs.localsend
      pkgs.lsof
      pkgs.mtr
-     pkgs.vim
      pkgs.pciutils
+     pkgs.solaar
+     pkgs.vim
      pkgs.virglrenderer
      pkgs.virt-viewer
      pkgs.virtiofsd
@@ -165,6 +175,7 @@
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
+    LIBVA_DRIVER_NAME = "iHD";
   };
 
   networking.firewall.allowedTCPPorts = [

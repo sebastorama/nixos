@@ -17,11 +17,15 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
+      intel-vaapi-driver
+      libvdpau-va-gl
+      vpl-gpu-rt
       vaapiIntel
       vaapiVdpau
-      libvdpau-va-gl
     ];
   };
+
+  hardware.enableRedistributableFirmware = true;
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/27e6907b-d25a-4b84-80f5-f9d900eb13eb";
