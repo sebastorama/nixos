@@ -18,8 +18,7 @@
     "intel_iommu=on"
     "iommu=pt"
     "vfio-pci"
-    "i915.force_probe=!7d55"
-    "xe.force_probe=7d55"
+    # "i915.force_probe=!7d55" "xe.force_probe=7d55" swap drivers from i915 to xe
   ];
 
   virtualisation = {
