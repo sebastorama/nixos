@@ -13,6 +13,23 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  zramSwap.enable = true;
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_8;
+  boot.kernelParams = [
+    "intel_iommu=on"
+    "iommu=pt"
+    "vfio-pci"
+#    "i915.force_probe=!7d55"
+#    "xe.force_probe=7d55"
+  ];
+
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.enableRedistributableFirmware = true;
+
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -25,7 +42,6 @@
     ];
   };
 
-  hardware.enableRedistributableFirmware = true;
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/27e6907b-d25a-4b84-80f5-f9d900eb13eb";
@@ -50,5 +66,4 @@
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

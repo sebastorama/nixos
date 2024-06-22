@@ -8,19 +8,6 @@
       ./hardware-configuration.nix
     ];
 
-  zramSwap.enable = true;
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_8;
-  boot.kernelParams = [
-    "intel_iommu=on"
-    "iommu=pt"
-    "vfio-pci"
-    # "i915.force_probe=!7d55" "xe.force_probe=7d55" swap drivers from i915 to xe
-  ];
-
   virtualisation = {
     libvirtd = {
       enable = true;
