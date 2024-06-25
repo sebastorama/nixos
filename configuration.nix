@@ -115,30 +115,6 @@
     ];
   };
 
-  fileSystems."/home/sebastorama/.cache/kwin" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "size=10M" "mode=777" ];
-  };
-
-  fileSystems."/home/sebastorama/.cache/plasmashell" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "size=10M" "mode=777" ];
-  };
-
-  fileSystems."/home/sebastorama/.cache/mesa_shader_cache" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "size=10M" "mode=777" ];
-  };
-
-  fileSystems."/home/sebastorama/.cache/kscreen_osd_service" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "size=10M" "mode=777" ];
-  };
-
   programs.firefox.enable = true;
   programs.zsh.enable = true;
   nixpkgs.config.allowUnfree = true;
