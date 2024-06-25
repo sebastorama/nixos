@@ -55,8 +55,9 @@
 
   services.flatpak.enable = true;
   services.power-profiles-daemon.enable = true;
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.enable = true;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "sebastorama";
   services.desktopManager.plasma6.enable = true;
