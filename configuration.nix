@@ -61,6 +61,12 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "sebastorama";
   services.desktopManager.plasma6.enable = true;
+  programs.dconf.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;

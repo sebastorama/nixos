@@ -30,13 +30,12 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.enableRedistributableFirmware = true;
 
-  hardware.graphics = {
+  hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
       intel-vaapi-driver
       libvdpau-va-gl
-      vpl-gpu-rt
       vaapiIntel
       vaapiVdpau
     ];
