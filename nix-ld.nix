@@ -3,111 +3,112 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     desktop-file-utils
-    xorg.libXcomposite
-    xorg.libXtst
-    xorg.libXrandr
-    xorg.libXext
-    xorg.libX11
-    xorg.libXfixes
     libGL
+    xorg.libX11
+    xorg.libXcomposite
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXrandr
+    xorg.libXtst
 
-    gst_all_1.gstreamer
-    gst_all_1.gst-plugins-ugly
     gst_all_1.gst-plugins-base
+    gst_all_1.gst-plugins-ugly
+    gst_all_1.gstreamer
     libdrm
-    xorg.xkeyboardconfig
     xorg.libpciaccess
+    xorg.xkeyboardconfig
 
+    bzip2
+    gdk-pixbuf
     glib
     gtk2
-    bzip2
+    gtk3
     zlib
-    gdk-pixbuf
 
-    xorg.libXinerama
-    xorg.libXdamage
-    xorg.libXcursor
-    xorg.libXrender
-    xorg.libXScrnSaver
-    xorg.libXxf86vm
-    xorg.libXi
-    xorg.libSM
-    xorg.libICE
-    freetype
+    SDL2
+    at-spi2-atk
+    atk
+    cairo
+    cups
     curlWithGnuTls
+    dbus
+    dbus-glib
+    expat
+    fontconfig
+    freetype
+    libcap
+    libudev0-shim
+    libusb1
     nspr
     nss
-    fontconfig
-    cairo
     pango
-    expat
-    dbus
-    cups
-    libcap
-    SDL2
-    libusb1
     udev
-    dbus-glib
-    atk
-    at-spi2-atk
-    libudev0-shim
+    xorg.libICE
+    xorg.libSM
+    xorg.libXScrnSaver
+    xorg.libXcursor
+    xorg.libXdamage
+    xorg.libXi
+    xorg.libXinerama
+    xorg.libXrender
+    xorg.libXxf86vm
 
-    xorg.libXt
-    xorg.libXmu
-    xorg.libxcb
-    xorg.xcbutil
-    xorg.xcbutilwm
-    xorg.xcbutilimage
-    xorg.xcbutilkeysyms
-    xorg.xcbutilrenderutil
-    libGLU
-    libuuid
-    libogg
-    libvorbis
     SDL
     SDL2_image
     glew110
-    openssl
+    libGLU
     libidn
-    tbb
-    wayland
-    mesa
+    libogg
+    libuuid
+    libvorbis
     libxkbcommon
+    mesa
+    openssl
+    tbb
     vulkan-loader
+    wayland
+    xorg.libXmu
+    xorg.libXt
+    xorg.libxcb
+    xorg.xcbutil
+    xorg.xcbutilimage
+    xorg.xcbutilkeysyms
+    xorg.xcbutilrenderutil
+    xorg.xcbutilwm
 
+    SDL2_mixer
+    SDL2_ttf
+    SDL_image
+    SDL_mixer
+    SDL_ttf
+    alsa-lib
     flac
     freeglut
-    libjpeg
-    libpng12
-    libpulseaudio
-    libsamplerate
-    libmikmod
-    libthai
-    libtheora
-    libtiff
-    pixman
-    speex
-    SDL_image
-    SDL_ttf
-    SDL_mixer
-    SDL2_ttf
-    SDL2_mixer
     libappindicator-gtk2
     libcaca
     libcanberra
     libgcrypt
-    libvpx
+    libjpeg
+    libmikmod
+    libpng12
+    libpulseaudio
     librsvg
-    xorg.libXft
+    libsamplerate
+    libthai
+    libtheora
+    libtiff
     libvdpau
-    alsa-lib
+    libvpx
+    pixman
+    speex
+    xorg.libXft
 
-    harfbuzz
     e2fsprogs
-    libgpg-error
-    keyutils.lib
-    libjack2
     fribidi
+    harfbuzz
+    keyutils.lib
+    libgpg-error
+    libjack2
     p11-kit
 
     gmp
