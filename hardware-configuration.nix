@@ -18,7 +18,12 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_8;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_9;
+  boot.kernelPatches = [
+    { name="zenbook-i915-revert-93cbc1accbcec2740231755774420934658e2b18"; patch = ./zenbook_patches/zenbook-i915-revert-93cbc1accbcec2740231755774420934658e2b18.patch; }
+    { name="hid-asus"; patch = ./zenbook_patches/hid_asus.patch; }
+  ];
+
   boot.kernelParams = [
     "intel_iommu=on"
     "iommu=pt"
