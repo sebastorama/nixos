@@ -61,6 +61,7 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "sebastorama";
   services.desktopManager.plasma6.enable = true;
+  services.libinput.touchpad.disableWhileTyping = true;
   programs.dconf.enable = true;
   xdg.portal = {
     enable = true;
@@ -128,6 +129,7 @@
 
   environment.systemPackages = [
      pkgs.distrobox
+     pkgs.emacs
      pkgs.kitty
      pkgs.localsend
      pkgs.lsof

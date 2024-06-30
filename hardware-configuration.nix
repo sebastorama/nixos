@@ -49,11 +49,35 @@
 
   boot.initrd.luks.devices."luks-b0395b07-7632-43ad-956b-0cdb3a88edfc".device = "/dev/disk/by-uuid/b0395b07-7632-43ad-956b-0cdb3a88edfc";
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/F553-A9F7";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = { device = "/dev/disk/by-uuid/F553-A9F7";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
+
+  fileSystems."/home/sebastorama/.cache/kwin" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=10M" "mode=777" ];
+  };
+
+  fileSystems."/home/sebastorama/.cache/plasmashell" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=10M" "mode=777" ];
+  };
+
+  fileSystems."/home/sebastorama/.cache/mesa_shader_cache" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=10M" "mode=777" ];
+  };
+
+  fileSystems."/home/sebastorama/.cache/kscreen_osd_service" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=10M" "mode=777" ];
+  };
+
 
   swapDevices = [ ];
 
