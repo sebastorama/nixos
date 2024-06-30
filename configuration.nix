@@ -55,6 +55,7 @@
 
   services.flatpak.enable = true;
   services.power-profiles-daemon.enable = true;
+  services.hardware.bolt.enable = true;
 
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
